@@ -1,0 +1,11 @@
+{
+    "dev":{
+        "host":"postgres://postgresdb/foodsangam",
+        "user":"postgres",
+        "password":"example",
+        "database":"foodsangam",
+        "driver":"pg",
+        "multipleStatement": true    
+    },
+    "sql-file":true
+}
