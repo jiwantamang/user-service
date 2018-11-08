@@ -17,6 +17,7 @@ import {
 } from '@loopback/rest';
 import {Customer} from '../models';
 import {CustomerRepository} from '../repositories';
+import {FilterConverter} from "../util/filter.converter";
 
 export class CustomerController {
   constructor(
@@ -65,7 +66,7 @@ export class CustomerController {
   async find(
     @param.query.object('filter', getFilterSchemaFor(Customer)) filter?: Filter,
   ): Promise<Customer[]> {
-    return await this.customerRepository.find(filter);
+    return await this.customerRepository.find(FilterConverter.convert(filter));
   }
 
   @patch('/customers', {
